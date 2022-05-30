@@ -1,5 +1,5 @@
 window.addEventListener("DOMContentLoaded", function() {
-  // формы поика
+  // формы поиcка
   document.querySelector(".search__btn--open").addEventListener("click", function() {
     document.querySelector(".search__form").classList.add("search__form--active");
     this.classList.add("active");
@@ -8,28 +8,32 @@ window.addEventListener("DOMContentLoaded", function() {
   document.addEventListener("click", function(e) {
     let target = e.target;
     let form = document.querySelector(".search__form");
-    if (!target.closest(".header__search")) {
+    if (!target.closest(".header__search") || target.closest(".search__close")) {
     form.classList.remove("search__form--active");
       form.querySelector("input").value = "";
       document.querySelector(".search__btn--open").classList.remove("active")
     }
-    if (!target.closest(".header-bottom__list")) {
+    if (!target.closest(".header-artists__list")) {
       document.querySelectorAll(".dropdown").forEach(el => {
           el.classList.remove("active-dropdown");
       })
-      document.querySelectorAll(".header-bottom__btn").forEach(el => {
+      document.querySelectorAll(".header-artists__btn").forEach(el => {
           el.classList.remove("dropdown__btn--active");
       });
+    }
+    if(target.closest(".header-main__item")) {
+      document.querySelector(".header-main__nav").classList.remove("header-main__nav--active");
+      document.body.style.overflow = "";
     }
   });
 
   // выпадающий список
-  document.querySelectorAll(".header-bottom__btn").forEach(item => {
+  document.querySelectorAll(".header-artists__btn").forEach(item => {
     item.addEventListener("click", function() {
       let btn = this;
       let dropdown = this.parentElement.querySelector(".dropdown");
 
-      document.querySelectorAll(".header-bottom__btn").forEach(el => {
+      document.querySelectorAll(".header-artists__btn").forEach(el => {
         if (el != btn) {
           el.classList.remove("dropdown__btn--active");
         }
@@ -44,5 +48,21 @@ window.addEventListener("DOMContentLoaded", function() {
       dropdown.classList.toggle("active-dropdown");
       btn.classList.toggle("dropdown__btn--active")
     });
+  });
+
+  // мобтльное меню
+  document.querySelector(".burger").addEventListener("click", function() {
+    document.querySelector(".header-main__nav").classList.add("header-main__nav--active");
+    document.body.style.overflow = "hidden";
+  });
+
+  // Слайдер
+  const swiper = new Swiper(".swiper", {
+    autoplay: {
+      delay: 6000,
+    },
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
   });
 })
