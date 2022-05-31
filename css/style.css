@@ -132,6 +132,10 @@ img {
   align-items: center;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 .btn {
   font-size: 18px;
   line-height: 25px;
@@ -159,11 +163,20 @@ img {
 
 .header__logo {
   width: 20%;
-  margin-right: 20px;
 }
 
 .header-main__nav {
   width: 80%;
+}
+
+.header-main__nav .simplebar-content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.header-menu__close,
+.header-main__nav .simplebar-track {
+  display: none;
 }
 
 .burger {
@@ -232,7 +245,7 @@ img {
 }
 
 .header-main__list {
-  width: 70%;
+  width: 80%;
   justify-content: space-between;
 }
 
@@ -258,7 +271,6 @@ img {
 .header-artists__list {
   justify-content: space-between;
   row-gap: 20px;
-  /* column-gap: 90px; */
   flex-wrap: wrap;
 }
 
@@ -527,10 +539,6 @@ img {
 }
 
 /* hero */
-/* .hero__swiper {
-  width: 100%;
-  height: 800px;
-} */
 .swiper {
   width: 100%;
   height: 800px;
@@ -651,7 +659,6 @@ img {
   }
 
   .header-main__nav {
-    display: none;
     position: fixed;
     flex-direction: column;
     padding-top: 37px;
@@ -663,12 +670,51 @@ img {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, .9);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-150%);
+    transition-property: transform, visibility, opacity;
+    transition-duration: .4s;
+    transition-timing-function: ease-in-out;
+  }
+
+  .header-main__nav--active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  .header-main__nav .simplebar-content {
+    height: inherit;
+  }
+
+  .header-main__nav .simplebar-track {
+    opacity: 1;
   }
 
   .header-main__list {
     width: auto;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .header-main__nav .simplebar-content::before,
+  .header-main__nav .simplebar-content::after {
+    display: none;
+  }
+
+  .header-main__nav .simplebar-content {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .header-main__item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  .header-menu__close {
+    display: block;
   }
 
   .header__link {
@@ -679,7 +725,7 @@ img {
 
   .header__btn {
     margin: 0;
-    margin-top: auto;
+    margin-bottom: 51px;
     padding: 19px 88px 22px;
     border: 2px solid var(--ligth-violet);
     border-radius: 100px;
@@ -729,7 +775,7 @@ img {
     position: absolute;
     z-index: 2;
     top: 50%;
-    right: 50px;
+    right: 0;
     transform: translate(150%, -50%);
     opacity: 0;
     visibility: hidden;
@@ -767,6 +813,32 @@ img {
   .hero__content {
     top: 205px;
   }
+
+  .search__form {
+    width: 100vw;
+    padding: 37px 50px;
+    height: 100px;
+    top: -30px;
+    left: calc(85px - 100vw);
+    justify-content: center;
+    background-color: #000000;
+    transform: translate(0, -110%);
+  }
+
+  .search__form--active {
+    transform: translate(0);
+  }
+
+  .search__btn {
+    position: relative;
+    margin-right: 10px;
+    bottom: -6px;
+  }
+
+  .search__input {
+    margin-right: 23px;
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -783,7 +855,15 @@ img {
   }
 
   .header-main__nav {
-    height: 100%;
+    height: 100vh;
+  }
+
+  .header-main__nav .simplebar-content {
+    padding: 15px!important;
+  }
+
+  .header-main__item:not(:last-child) {
+    margin-bottom: 20px;
   }
 
   .header__link {
@@ -792,6 +872,7 @@ img {
   }
 
   .header__btn {
+    margin-bottom: 12px;
     font-size: 12px;
     line-height: 16px;
     padding: 11px 32px;
@@ -802,12 +883,50 @@ img {
     width: 9px;
     height: 9px;
   }
+
   .burger__line {
-    width: calc(10px + (var(--i) * 5px))
+    width: calc(10px + (var(--i) * 5px));
+    height: 2px;
   }
 
   .burger__line:not(:last-child) {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+  }
+
+  .search__form {
+    padding: 15px;
+    height: 75px;
+    top: -11px;
+    left: calc(50px - 100vw);
+    transform: translate(0, -110%);
+  }
+
+  .search__form--active {
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: translate(0);
+  }
+
+  .search__close {
+    align-self: flex-start;
+  }
+
+  .header-menu__close svg,
+  .search__close svg,
+  .search__btn--open svg,
+  .search__btn svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .search__btn {
+    position: relative;
+    margin-right: 3px;
+    bottom: -6px;
+  }
+
+  .search__input {
+    margin-right: 34px;
+    width: 72%;
   }
 
   .swiper {
