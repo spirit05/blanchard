@@ -17,9 +17,11 @@
     <link rel="stylesheet" href="css/simplebar.css">
     <link rel="stylesheet" href="css/jquery-ui.min.css">
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/choices.min.css">
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/scripts/choices.min.js"></script>
     <script defer src="js/simplebar.min.js"></script>
     <script defer src="js/jquery.js"></script>
     <script defer src="js/jquery-ui.min.js"></script>
@@ -344,24 +346,136 @@
             </picture>
           </div>
         </div>
-
-        <!-- If we need pagination -->
-        <div class="swiper-pagination flex"></div>
       </div>
     </section>
     <!-- /.hero -->
 
-    <section class="about" id="about">
-      <div class="container"></div>
+    <section class="about section-offset" id="about">
+      <div class="container">
+        <h2 class="section__title">О нас</h2>
+        <p class="about__description">Ясность нашей позиции очевидна: семантический разбор внешних противодействий однозначно определяет каждого участника как способного принимать собственные решения касаемо распределения внутренних резервов и&nbsp;ресурсов. Не&nbsp;следует, однако, забывать, что высококачественный прототип будущего проекта влечет за&nbsp;собой процесс внедрения и&nbsp;модернизации модели развития. Повседневная практика показывает, что высокое качество позиционных исследований создаёт необходимость включения в&nbsp;производственный план целого ряда внеочередных мероприятий с&nbsp;учётом комплекса распределения внутренних резервов и&nbsp;ресурсов. В&nbsp;рамках спецификации современных стандартов, действия представителей оппозиции набирают популярность среди определенных слоев населения, а&nbsp;значит, должны быть разоблачены.</p>
+      </div>
     </section>
     <!-- /.about -->
 
-    <section class="galery" id="galery">
-      <div class="container"></div>
+    <section class="galery section-offset" id="galery">
+      <div class="container galery_container flex">
+        <div class="galery-right">
+          <h2 class="galery__title section__title">Галерея</h2>
+          <div class="galery-right__content flex">
+            <div class="galery-right__filter">
+              <label for="galery-filter" class="galery-filter__name">Фильтр:</label>
+              <select name="galery-filter" id="galery-filter" class="galery__filter">
+                <option value="">Живопись</option>
+                <option value="Рисунок">Рисунок</option>
+                <option value="Скульптура">Скульптура</option>
+                <option value="Рисунок">Рисунок</option>
+                <option value="Скульптура">Скульптура</option>
+              </select>
+            </div>
+            <!-- /.galery-rigth__filter -->
+
+            <ul class="galery-checkbox checkbox-list">
+              <li class="checkbox-item">
+                <label for="xix" class="checkbox-name">
+                  <input type="checkbox" name="xix" id="xix">
+                  <span>XIX век</span>
+                </label>
+              </li>
+              <li class="checkbox-item">
+                <label for="xx" class="checkbox-name">
+                  <input type="checkbox" name="xx" id="xx" checked>
+                  <span>XX век</span>
+                </label>
+              </li>
+              <li class="checkbox-item">
+                <label for="modernity" class="checkbox-name">
+                  <input type="checkbox" name="modernity" id="modernity">
+                  <span>Современность</span>
+                </label>
+              </li>
+            </ul>
+            <!-- /.galery-checkbox  -->
+          </div>
+        </div>
+        <div class="galery-left">
+          <div class="galery-swiper">
+            <!-- Additional required wrapper -->
+            <div class="galery-swiper__navigation flex">
+              <div class="galery-swiper__prev">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 30C6.71573 30 8.89561e-07 23.2843 1.25168e-06 15C1.61379e-06 6.71573 6.71573 -1.01779e-06 15 -6.55671e-07C23.2843 -2.93554e-07 30 6.71573 30 15C30 23.2843 23.2843 30 15 30Z" fill="#666666"/>
+                  <path d="M15 30C6.71573 30 8.89561e-07 23.2843 1.25168e-06 15C1.61379e-06 6.71573 6.71573 -1.01779e-06 15 -6.55671e-07C23.2843 -2.93554e-07 30 6.71573 30 15C30 23.2843 23.2843 30 15 30Z" stroke="black"/>
+                  <path d="M16 20L11 15L16 10" stroke="white"/>
+                </svg>
+              </div>
+              <div class="swiper-pagination"></div>
+              <div class="galery-swiper__next">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 -1.01779e-06 15 -6.55671e-07C6.71573 -2.93554e-07 2.93554e-07 6.71573 6.55671e-07 15C1.01779e-06 23.2843 6.71573 30 15 30Z" fill="#666666"/>
+                  <path d="M15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 -1.01779e-06 15 -6.55671e-07C6.71573 -2.93554e-07 2.93554e-07 6.71573 6.55671e-07 15C1.01779e-06 23.2843 6.71573 30 15 30Z" stroke="black"/>
+                  <path d="M14 20L19 15L14 10" stroke="white"/>
+                </svg>
+              </div>
+            </div>
+            <div class="swiper-wrapper">
+
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <picture class="galery-slide__img">
+                  <source media="(max-width: 576px)" srcset="img/galery/slide-1-mobile.jpg">
+                  <source media="(max-width: 992px)" srcset="img/galery/slide-1-small-tablet.jpg">
+                  <source media="(max-width: 1200px)" srcset="img/galery/slide-1-tablet.jpg">
+                  <img src="img/galery/slide-1.jpg" alt="">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture class="galery-slide__img">
+                  <source media="(max-width: 576px)" srcset="img/galery/slide-2-mobile.jpg">
+                  <source media="(max-width: 992px)" srcset="img/galery/slide-2-small-tablet.jpg">
+                  <source media="(max-width: 1200px)" srcset="img/galery/slide-2-tablet.jpg">
+                  <img src="img/galery/slide-2.jpg" alt="">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture class="galery-slide__img">
+                  <source media="(max-width: 576px)" srcset="img/galery/slide-3-mobile.jpg">
+                  <source media="(max-width: 992px)" srcset="img/galery/slide-3-small-tablet.jpg">
+                  <source media="(max-width: 1200px)" srcset="img/galery/slide-3-tablet.jpg">
+                  <img src="img/galery/slide-3.jpg" alt="">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture class="galery-slide__img">
+                  <source media="(max-width: 576px)" srcset="img/galery/slide-4-mobile.jpg">
+                  <source media="(max-width: 992px)" srcset="img/galery/slide-4-small-tablet.jpg">
+                  <source media="(max-width: 1200px)" srcset="img/galery/slide-4-tablet.jpg">
+                  <img src="img/galery/slide-4.jpg" alt="">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture class="galery-slide__img">
+                  <source media="(max-width: 576px)" srcset="img/galery/slide-5-mobile.jpg">
+                  <source media="(max-width: 992px)" srcset="img/galery/slide-5-small-tablet.jpg">
+                  <source media="(max-width: 1200px)" srcset="img/galery/slide-5-tablet.jpg">
+                  <img src="img/galery/slide-5.jpg" alt="">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture class="galery-slide__img">
+                  <source media="(max-width: 992px)" srcset="img/galery/slide-6-small-tablet.jpg">
+                  <source media="(max-width: 1200px)" srcset="img/galery/slide-6-tablet.jpg">
+                  <img src="img/galery/slide-6.jpg" alt="">
+                </picture>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
     <!-- /.galery -->
 
-    <section class="catalog" id="catalog">
+    <section class="catalog section-offset" id="catalog">
       <div class="container"></div>
     </section>
     <!-- /.catalog -->
@@ -371,7 +485,7 @@
     </section>
     <!-- /.ivents -->
 
-    <section class="projects" id="projects">
+    <section class="projects section-offset" id="projects">
       <div class="container"></div>
     </section>
     <!-- /.projects -->

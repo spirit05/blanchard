@@ -6,9 +6,12 @@ window.addEventListener("DOMContentLoaded", function() {
   });
 
   document.addEventListener("click", function(e) {
-    e.preventDefault();
     let target = e.target;
     let form = document.querySelector(".search__form");
+    if (target.closest("button")) {
+      console.log('target: ', target.closest("input"));
+      e.preventDefault();
+    }
     if (!target.closest(".header__search") || target.closest(".search__close")) {
     form.classList.remove("search__form--active");
       form.querySelector("input").value = "";
@@ -58,12 +61,65 @@ window.addEventListener("DOMContentLoaded", function() {
   });
 
   // Слайдер
-  const swiper = new Swiper(".swiper", {
+  // hero
+  const heroSlider = new Swiper(".swiper", {
     autoplay: {
       delay: 6000,
     },
     slidesPerView: 1,
     spaceBetween: 30,
     loop: true,
+  });
+
+  // galery
+  const galerySlider = new Swiper(".galery-swiper", {
+    pagination: {
+      el: ".swiper-pagination",
+      type: "fraction",
+    },
+    navigation: {
+      nextEl: ".galery-swiper__next",
+      prevEl: ".galery-swiper__prev",
+    },
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+      },
+      // when window width is >= 480px
+      576: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        spaceBetween: 38
+      },
+      // when window width is >= 992px
+      992: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        spaceBetween: 34
+      },
+      1200: {
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+        spaceBetween: 50,
+      }
+    }
+  })
+
+  // Фильтер галереи
+  const selectGalery = document.querySelector(".galery__filter");
+  const galeryFilter = new Choices(selectGalery, {
+    searchEnabled: false,
+    position: 'center',
+    shouldSort: false,
+    pagination: {
+      el: ".swiper-pagination",
+      type: "fraction",
+    },
+    navigation: {
+      nextEl: '.galery-swiper__next',
+      prevEl: '.galery-swiper__prev',
+    },
   });
 })
