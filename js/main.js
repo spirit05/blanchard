@@ -105,7 +105,41 @@ window.addEventListener("DOMContentLoaded", function() {
         spaceBetween: 50,
       }
     }
-  })
+  });
+
+  // events
+  const eventsSlider = new Swiper(".event-swiper", {
+    pagination: {
+      el: ".events-pagination",
+      type: 'bullets',
+    },
+    navigation: {
+      nextEl: ".events-swiper__next",
+      prevEl: ".events-swiper__prev",
+    },
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+      },
+      // when window width is >= 480px
+      576: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        spaceBetween: 34
+      },
+      // when window width is >= 992px
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 27
+      },
+      1200: {
+        slidesPerView: 3,
+        spaceBetween:50
+      }
+    }
+  });
 
   // Фильтер галереи
   const selectGalery = document.querySelector(".galery__filter");
@@ -113,14 +147,6 @@ window.addEventListener("DOMContentLoaded", function() {
     searchEnabled: false,
     position: 'center',
     shouldSort: false,
-    pagination: {
-      el: ".swiper-pagination",
-      type: "fraction",
-    },
-    navigation: {
-      nextEl: '.galery-swiper__next',
-      prevEl: '.galery-swiper__prev',
-    },
   });
 
   $(".catalog-accordion").accordion({
