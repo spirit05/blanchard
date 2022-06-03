@@ -122,4 +122,9 @@ window.addEventListener("DOMContentLoaded", function() {
       prevEl: '.galery-swiper__prev',
     },
   });
+
+  $(".catalog-accordion").accordion({
+    heightStyle: "content",
+    icons: false,
+  });
 })
