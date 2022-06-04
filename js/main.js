@@ -1,4 +1,61 @@
 window.addEventListener("DOMContentLoaded", function() {
+  const sliderParametr = {
+    slidesPerView: 1,
+    grid: {
+      rows: 1,
+      fill: "row"
+    },
+    spaceBetween: 20,
+    pagination: {
+      el: ".galery .galery-swiper__pagination",
+      type: "fraction"
+    },
+    navigation: {
+      nextEl: ".galery-swiper__next",
+      prevEl: ".galery-swiper__prev"
+    },
+    breakpoints: {
+      441: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      },
+
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: 50
+      }
+    },
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true
+    }, // можно управлять с клавиатуры стрелками влево/вправо
+
+    // Дальнейшие надстройки делают слайды вне области видимости не фокусируемыми
+    watchSlidesProgress: true,
+    watchSlidesVisibility: true,
+    slideVisibleClass: "slide-visible",
+
+    on: {
+      init: function () {
+        this.slides.forEach((slide) => {
+          if (!slide.classList.contains("slide-visible")) {
+            slide.tabIndex = "-1";
+          } else {
+            slide.tabIndex = "";
+          }
+        });
+      },
+      slideChange: function () {
+        this.slides.forEach((slide) => {
+          if (!slide.classList.contains("slide-visible")) {
+            slide.tabIndex = "-1";
+          } else {
+            slide.tabIndex = "";
+          }
+        });
+      }
+    }
+  }
   // формы поиcка
   document.querySelector(".search__btn--open").addEventListener("click", function() {
     document.querySelector(".search__form").classList.add("search__form--active");
@@ -72,135 +129,29 @@ window.addEventListener("DOMContentLoaded", function() {
   });
 
   // galery
-  const gallerySlider = new Swiper(".slides-container", {
-    slidesPerView: 1,
-    grid: {
-      rows: 1,
-      fill: "row"
-    },
-    spaceBetween: 20,
-    pagination: {
-      el: ".galery .galery-swiper__pagination",
-      type: "fraction"
-    },
-    navigation: {
-      nextEl: ".galery-swiper__next",
-      prevEl: ".galery-swiper__prev"
-    },
+  const gallerySlider = new Swiper(".slides-container", sliderParametr);
 
-    breakpoints: {
-      441: {
-        slidesPerView: 2,
-        spaceBetween: 30
-      },
+  sliderParametr.pagination = {
+    el: ".events .events-swiper__pagination",
+    type: 'bullets',
+  }
 
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 50
-      }
-    },
-
-    a11y: false,
-    keyboard: {
-      enabled: true,
-      onlyInViewport: true
-    }, // можно управлять с клавиатуры стрелками влево/вправо
-
-    // Дальнейшие надстройки делают слайды вне области видимости не фокусируемыми
-    watchSlidesProgress: true,
-    watchSlidesVisibility: true,
-    slideVisibleClass: "slide-visible",
-
-    on: {
-      init: function () {
-        this.slides.forEach((slide) => {
-          if (!slide.classList.contains("slide-visible")) {
-            slide.tabIndex = "-1";
-          } else {
-            slide.tabIndex = "";
-          }
-        });
-      },
-      slideChange: function () {
-        this.slides.forEach((slide) => {
-          if (!slide.classList.contains("slide-visible")) {
-            slide.tabIndex = "-1";
-          } else {
-            slide.tabIndex = "";
-          }
-        });
-      }
-    }
-
-    // on: {
-    //   /* исправляет баг с margin-top остающимся при смене брейкпоинта, это было нужно в 6-й версии свайпера */
-    //   beforeResize: function () {
-    //     this.slides.forEach((el) => {
-    //       el.style.marginTop = "";
-    //     });
-    //   }
-    // }
-  });
-
+  sliderParametr.navigation = {
+    nextEl: ".events-swiper__next",
+    prevEl: ".events-swiper__prev",
+  }
   // events
-  const eventsSlider = new Swiper(".event-swiper", {
-    pagination: {
-      el: ".events-pagination",
-      type: 'bullets',
-    },
-    navigation: {
-      nextEl: ".events-swiper__next",
-      prevEl: ".events-swiper__prev",
-    },
-    breakpoints: {
-      // when window width is >= 320px
-      320: {
-        slidesPerView: 1,
-      },
-      // when window width is >= 480px
-      576: {
-        slidesPerView: 2,
-        spaceBetween: 34
-      },
-      // when window width is >= 992px
-      992: {
-        slidesPerView: 3,
-        spaceBetween: 27
-      },
-      1200: {
-        slidesPerView: 3,
-        spaceBetween:50
-      }
-    }
-  });
+  const eventsSlider = new Swiper(".event-swiper", sliderParametr);
+
+  delete sliderParametr.pagination;
+
+  sliderParametr.navigation = {
+    nextEl: ".partner-swiper__next",
+    prevEl: ".partner-swiper__prev",
+  }
 
   // Project
-  const partnerSlider = new Swiper(".partner-swiper", {
-    navigation: {
-      nextEl: ".partner-swiper__next",
-      prevEl: ".partner-swiper__prev",
-    },
-    breakpoints: {
-      // when window width is >= 320px
-      320: {
-        slidesPerView: 1,
-      },
-      // when window width is >= 480px
-      576: {
-        slidesPerView: 2,
-        spaceBetween: 34
-      },
-      // when window width is >= 992px
-      992: {
-        slidesPerView: 2,
-        spaceBetween: 50
-      },
-      1200: {
-        slidesPerView: 3,
-        spaceBetween:50
-      }
-    }
-  });
+  const partnerSlider = new Swiper(".partner-swiper", sliderParametr);
 
   // Фильтер галереи
   const selectGalery = document.querySelector(".galery__filter");
