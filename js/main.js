@@ -8,10 +8,10 @@ window.addEventListener("DOMContentLoaded", function() {
   document.addEventListener("click", function(e) {
     let target = e.target;
     let form = document.querySelector(".search__form");
-    if (target.closest("button")) {
-      console.log('target: ', target.closest("input"));
-      e.preventDefault();
-    }
+    // if (target.closest("button")) {
+    //   console.log('target: ', target.closest("input"));
+    //   e.preventDefault();
+    // }
     if (!target.closest(".header__search") || target.closest(".search__close")) {
     form.classList.remove("search__form--active");
       form.querySelector("input").value = "";
@@ -72,39 +72,74 @@ window.addEventListener("DOMContentLoaded", function() {
   });
 
   // galery
-  const galerySlider = new Swiper(".galery-swiper", {
+  const gallerySlider = new Swiper(".slides-container", {
+    slidesPerView: 1,
+    grid: {
+      rows: 1,
+      fill: "row"
+    },
+    spaceBetween: 20,
     pagination: {
-      el: ".swiper-pagination",
-      type: "fraction",
+      el: ".galery .galery-swiper__pagination",
+      type: "fraction"
     },
     navigation: {
       nextEl: ".galery-swiper__next",
-      prevEl: ".galery-swiper__prev",
+      prevEl: ".galery-swiper__prev"
     },
+
     breakpoints: {
-      // when window width is >= 320px
-      320: {
-        slidesPerView: 1,
-        slidesPerGroup: 1,
-      },
-      // when window width is >= 480px
-      576: {
+      441: {
         slidesPerView: 2,
-        slidesPerGroup: 2,
-        spaceBetween: 38
+        spaceBetween: 30
       },
-      // when window width is >= 992px
-      992: {
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        spaceBetween: 34
-      },
+
       1200: {
         slidesPerView: 3,
-        slidesPerGroup: 3,
-        spaceBetween: 50,
+        spaceBetween: 50
+      }
+    },
+
+    a11y: false,
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true
+    }, // можно управлять с клавиатуры стрелками влево/вправо
+
+    // Дальнейшие надстройки делают слайды вне области видимости не фокусируемыми
+    watchSlidesProgress: true,
+    watchSlidesVisibility: true,
+    slideVisibleClass: "slide-visible",
+
+    on: {
+      init: function () {
+        this.slides.forEach((slide) => {
+          if (!slide.classList.contains("slide-visible")) {
+            slide.tabIndex = "-1";
+          } else {
+            slide.tabIndex = "";
+          }
+        });
+      },
+      slideChange: function () {
+        this.slides.forEach((slide) => {
+          if (!slide.classList.contains("slide-visible")) {
+            slide.tabIndex = "-1";
+          } else {
+            slide.tabIndex = "";
+          }
+        });
       }
     }
+
+    // on: {
+    //   /* исправляет баг с margin-top остающимся при смене брейкпоинта, это было нужно в 6-й версии свайпера */
+    //   beforeResize: function () {
+    //     this.slides.forEach((el) => {
+    //       el.style.marginTop = "";
+    //     });
+    //   }
+    // }
   });
 
   // events
@@ -121,18 +156,44 @@ window.addEventListener("DOMContentLoaded", function() {
       // when window width is >= 320px
       320: {
         slidesPerView: 1,
-        slidesPerGroup: 1,
       },
       // when window width is >= 480px
       576: {
         slidesPerView: 2,
-        slidesPerGroup: 2,
         spaceBetween: 34
       },
       // when window width is >= 992px
       992: {
         slidesPerView: 3,
         spaceBetween: 27
+      },
+      1200: {
+        slidesPerView: 3,
+        spaceBetween:50
+      }
+    }
+  });
+
+  // Project
+  const partnerSlider = new Swiper(".partner-swiper", {
+    navigation: {
+      nextEl: ".partner-swiper__next",
+      prevEl: ".partner-swiper__prev",
+    },
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 1,
+      },
+      // when window width is >= 480px
+      576: {
+        slidesPerView: 2,
+        spaceBetween: 34
+      },
+      // when window width is >= 992px
+      992: {
+        slidesPerView: 2,
+        spaceBetween: 50
       },
       1200: {
         slidesPerView: 3,
@@ -149,8 +210,15 @@ window.addEventListener("DOMContentLoaded", function() {
     shouldSort: false,
   });
 
+  // Accordion
   $(".catalog-accordion").accordion({
     heightStyle: "content",
     icons: false,
+  });
+
+  // Tooltips
+  tippy('.js-tooltip', {
+    theme: 'blanchard',
+    maxWidth: 264,
   });
 })
