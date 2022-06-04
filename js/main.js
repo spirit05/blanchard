@@ -211,9 +211,8 @@ window.addEventListener("DOMContentLoaded", function() {
   });
 
   // Accordion
-  $(".catalog-accordion").accordion({
-    heightStyle: "content",
-    icons: false,
+  new Accordion(".js-accordion-container", {
+    openOnInit: [0]
   });
 
   // Tooltips
