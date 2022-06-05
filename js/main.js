@@ -14,6 +14,7 @@ window.addEventListener("DOMContentLoaded", function() {
       nextEl: ".galery-swiper__next",
       prevEl: ".galery-swiper__prev"
     },
+    autoHeight: true,
     breakpoints: {
       441: {
         slidesPerView: 2,
@@ -171,4 +172,83 @@ window.addEventListener("DOMContentLoaded", function() {
     theme: 'blanchard',
     maxWidth: 264,
   });
+
+  // Добавление яндекс карты
+  ymaps.ready(init);
+  function init(){
+    const myMap = new ymaps.Map("map", {
+        center: [55.758468,37.601088],
+        zoom: 14,
+        controls: ['geolocationControl', 'zoomControl']
+        },
+        {
+          suppressMapOpenBlock: true,
+          geolocationControlSize: "large",
+          geolocationControlPosition:  { top: "340px", right: "20px" },
+          geolocationControlFloat: 'none',
+          zoomControlSize: "small",
+          zoomControlFloat: "none",
+          zoomControlPosition: { top: "265px", right: "20px" }
+        },
+    );
+
+    const myGeoObject = new ymaps.GeoObject();
+
+    myMap.geoObjects.add(myGeoObject);
+    var myPlacemark = new ymaps.Placemark([55.758468,37.601088], {}, {
+        iconLayout: 'default#image',
+        iconImageHref: 'img/icons/map-icon.svg',
+        iconImageSize: [20, 20],
+    });
+
+    myMap.geoObjects.add(myPlacemark);
+
+    myMap.behaviors.disable('scrollZoom');
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+        myMap.behaviors.disable('drag');
+    }
+  }
+
+  const phone = document.querySelector("input[type='tel']");
+  const im = new Inputmask("+7(999) 999-99-99")
+
+  const validation = new JustValidate(".contact-form", {
+    focusInvalidField: true,
+    errorFieldCssClass: 'is-invalid',
+    lockForm: true,
+    tooltip: {
+      position: 'top',
+    },
+  });
+
+  im.mask(phone);
+
+  validation
+    .addField('#name', [
+      {
+        rule: 'required',
+        errorMessage: 'Вы не ввели имя',
+      },
+      {
+        rule: "string",
+        validator: (value) => {
+          return /^[a-zа-яё\s]*$/gi.test(value);
+        },
+        errorMessage: 'Не допустимый формат',
+      }
+    ])
+    .addField('#phone', [
+      {
+        rule: 'required',
+        errorMessage: 'Вы не ввели телефон',
+      },
+      {
+        validator: (value) => {
+          const tel = phone.inputmask.unmaskedvalue();
+          return !!(Number(tel) && tel.length === 10);
+        },
+        errorMessage: 'Телефон слишком короткий',
+      }
+    ]);
 })
