@@ -33,326 +33,297 @@
     <script defer src="js/main.js"></script>
 </head>
 <body>
-  <header class="header">
-    <div class="header-main">
-      <div class="container header__container flex">
-        <a href="/" class="header__logo">
-          <picture class="header-logo__img">
-            <source media="(max-width: 576px)" srcset="img/logo-small.svg">
-            <img src="img/logo.svg" alt="Logo">
-          </picture>
-        </a>
-        <!-- /.header__logo -->
-
-        <button class="burger btn">
-          <span class="burger__line" style="--i:2"></span>
-          <span class="burger__line" style="--i:1"></span>
-          <span class="burger__line" style="--i:0"></span>
-        </button>
-        <!-- /.burger -->
-
-
-        <div class="header-search__mobile header__search search">
-          <form action="/" class="search__form">
-            <button class="search__btn btn" type="submit" aria-label="Найти">
-              <svg width="26" height="25" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="9.15446" height="2.28862" transform="matrix(-0.718931 0.695081 0.718931 0.695081 6.58154 21.0461)" fill="white"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.1246 24.174C10.0376 24.174 5.32763 19.2726 5.32763 13.5104C5.32763 7.74823 10.0376 2.84676 16.1246 2.84676C22.2115 2.84676 26.9215 7.74823 26.9215 13.5104C26.9215 19.2726 22.2115 24.174 16.1246 24.174ZM16.1246 26.8399C8.76285 26.8399 2.79502 20.8721 2.79502 13.5104C2.79502 6.14869 8.76285 0.180847 16.1246 0.180847C23.4863 0.180847 29.4541 6.14869 29.4541 13.5104C29.4541 20.8721 23.4863 26.8399 16.1246 26.8399Z" fill="white"/>
-              </svg>
+  <div class="top-wrapper">
+    <header class="header">
+      <div class="header-top">
+        <div class="container header-container">
+          <a class="logo">
+            <img src="img/logo.svg" alt="Logo Skillbox">
+          </a>
+          <nav class="header-main__nav header-nav flex">
+            <div class="header-menu__wrap">
+              <ul class="header-main__list flex">
+                <li class="header-main__item effect">
+                  <a href="#about" class="header__link heading-effect">
+                    <span class="header__link-wrap text-wrap">О нас</span>
+                  </a>
+                </li>
+                <li class="header-main__item effect">
+                  <a href="#galery" class="header__link heading-effect">
+                    <span class="header__link-wrap text-wrap">Галерея</span>
+                  </a>
+                </li>
+                <li class="header-main__item effect">
+                  <a href="#catalog" class="header__link heading-effect">
+                    <span class="header__link-wrap text-wrap">Каталог</span>
+                  </a>
+                </li>
+                <li class="header-main__item effect">
+                  <a href="#events" class="header__link heading-effect">
+                    <span class="header__link-wrap text-wrap">События</span>
+                  </a>
+                </li>
+                <li class="header-main__item effect">
+                  <a href="#projects" class="header__link heading-effect">
+                    <span class="header__link-wrap text-wrap">Проекты</span>
+                  </a>
+                </li>
+                <li class="header-main__item effect">
+                  <a href="#contacts" class="header__link heading-effect">
+                    <span class="header__link-wrap text-wrap">Контакты</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <button class="header__btn heading-effect effect" tabindex="0">
+              <span class="header-btn__wrap text-wrap flex">
+                <span class="header-btn__icon">
+                  <svg width="18" height="13" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.62056 9.09278L10.6389 10.1111L14.25 6.5L10.6389 2.88889L9.62056 3.90722L11.4839 5.77778H0V7.22222H11.4839L9.62056 9.09278ZM16.0556 0H5.94444C5.14278 0 4.5 0.65 4.5 1.44444V4.33333H5.94444V1.44444H16.0556V11.5556H5.94444V8.66667H4.5V11.5556C4.5 12.35 5.14278 13 5.94444 13H16.0556C16.85 13 17.5 12.35 17.5 11.5556V1.44444C17.5 0.65 16.85 0 16.0556 0Z" fill="white"/>
+                  </svg>
+                </span>
+                <span class="header__btn-text">Войти</span>
+              </span>
             </button>
-            <input class="search__input" type="text" name="search" id="search">
-            <button class="search__close btn">
-              <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="29.567" height="2.9567" transform="matrix(0.707093 0.707121 -0.707093 0.707121 2.09326 0)" fill="white"/>
-                <rect width="29.567" height="2.9567" transform="matrix(0.707093 -0.707121 0.707093 0.707121 0 20.9075)" fill="white"/>
-              </svg>
-            </button>
-          </form>
-          <!-- /.search-form -->
+          </nav>
+          <!-- /.header__nav -->
 
-          <button class="search__btn--open btn" aria-label="Поиск">
-            <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="9.15446" height="2.28862" transform="matrix(-0.718931 0.695081 0.718931 0.695081 6.58154 21.0461)" fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M16.1246 24.174C10.0376 24.174 5.32763 19.2726 5.32763 13.5104C5.32763 7.74823 10.0376 2.84676 16.1246 2.84676C22.2115 2.84676 26.9215 7.74823 26.9215 13.5104C26.9215 19.2726 22.2115 24.174 16.1246 24.174ZM16.1246 26.8399C8.76285 26.8399 2.79502 20.8721 2.79502 13.5104C2.79502 6.14869 8.76285 0.180847 16.1246 0.180847C23.4863 0.180847 29.4541 6.14869 29.4541 13.5104C29.4541 20.8721 23.4863 26.8399 16.1246 26.8399Z" fill="white"/>
-            </svg>
+          <button class="burger btn">
+            <span class="burger__line" style="--i:2"></span>
+            <span class="burger__line" style="--i:1"></span>
+            <span class="burger__line" style="--i:0"></span>
           </button>
-          <!-- /.search__btn--open -->
-
+          <!-- /.burger -->
         </div>
-
-        <nav class="header-main__nav header-nav flex" data-simplebar>
-          <ul class="header-main__list flex">
-            <li class="header-main__item">
-              <button class="header-menu__close">
-                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="29.567" height="2.9567" transform="matrix(0.707093 0.707121 -0.707093 0.707121 2.09326 0)" fill="white"/>
-                  <rect width="29.567" height="2.9567" transform="matrix(0.707093 -0.707121 0.707093 0.707121 0 20.9075)" fill="white"/>
-                </svg>
-              </button>
-            </li>
-            <li class="header-main__item">
-              <a href="#about" class="header__link">О нас</a>
-            </li>
-            <li class="header-main__item">
-              <a href="#galery" class="header__link">Галерея</a>
-            </li>
-            <li class="header-main__item">
-              <a href="#catalog" class="header__link">Каталог</a>
-            </li>
-            <li class="header-main__item">
-              <a href="#events" class="header__link">События</a>
-            </li>
-            <li class="header-main__item">
-              <a href="#projects" class="header__link">Проекты</a>
-            </li>
-            <li class="header-main__item">
-              <a href="#contacts" class="header__link">Контакты</a>
-            </li>
-          </ul>
-          <button class="header__btn btn" tabindex="0">
-            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5.62056 9.09278L6.63889 10.1111L10.25 6.5L6.63889 2.88889L5.62056 3.90722L7.48389 5.77778H0.5V7.22222H7.48389L5.62056 9.09278ZM12.0556 0H1.94444C1.14278 0 0.5 0.65 0.5 1.44444V4.33333H1.94444V1.44444H12.0556V11.5556H1.94444V8.66667H0.5V11.5556C0.5 12.35 1.14278 13 1.94444 13H12.0556C12.85 13 13.5 12.35 13.5 11.5556V1.44444C13.5 0.65 12.85 0 12.0556 0Z" fill="white"/>
-            </svg>
-            Войти
-          </button>
-        </nav>
-        <!-- /.header__nav -->
-
       </div>
-    </div>
-    <!-- /.header-main -->
+      <div class="header-bottom">
+        <div class="container header-bottom__container">
+          <nav class="header-bottom__nav header-nav">
+            <ul class="header-bottom__list flex">
+              <li class="header-bottom__item">
+                <button class="header-bottom__btn btn js-header-dropdown-btn" data-path="one">
+                  <span class="header-bottom__heading heading-effect">
+                    <span class="header-bottom__heading-wrap">
+                      Реализм
+                    </span>
+                  </span>
+                  <span class="header-bottom__icon"></span>
+                </button>
+                <div class="header-list__dropdown js-header-drop" data-target="one">
+                  <div class="header__dropdown-wrap dropdown" data-simplebar>
+                    <ul class="dropdown__list">
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--tintoretto">
+                          <span class="dropdown__item-text">Тинторетто</span>
+                        </a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--tintoretto">
+                          <span class="dropdown__item-text">Тинторетто</span>
+                        </a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--friedrich">
+                          <span class="dropdown__item-text">Фридрих</span>
+                        </a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--leonardo">
+                          <span class="dropdown__item-text">Леонардо</span>
+                        </a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--verrocchio">
+                          <span class="dropdown__item-text">Верроккьо</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="header-bottom__item">
+                <button class="header-bottom__btn btn js-header-dropdown-btn" data-path="two">
+                  <span class="header-bottom__heading heading-effect">
+                    <span class="header-bottom__heading-wrap">
+                      Импрессионизм
+                    </span>
+                  </span>
+                  <span class="header-bottom__icon"></span>
+                </button>
+                <div class="header-list__dropdown js-header-drop" data-target="two">
+                  <div class="header__dropdown-wrap dropdown" data-simplebar>
+                    <ul class="dropdown__list">
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--mone">
+                          <span class="dropdown__item-text">Моне</span>
+                        </a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--sisley">
+                          <span class="dropdown__item-text">Сислей</span>
+                        </a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--mane">
+                          <span class="dropdown__item-text">Мане</span>
+                        </a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--renoir">
+                          <span class="dropdown__item-text">Ренуар</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="header-bottom__item">
+                <button class="header-bottom__btn btn js-header-dropdown-btn" data-path="three">
+                  <span class="header-bottom__heading heading-effect">
+                    <span class="header-bottom__heading-wrap">
+                      Постимпрессионизм
+                    </span>
+                  </span>
+                  <span class="header-bottom__icon"></span>
+                </button>
+                <div class="header-list__dropdown js-header-drop" data-target="three">
+                  <div class="header__dropdown-wrap dropdown" data-simplebar>
+                    <ul class="dropdown__list">
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--vangog">
+                          <span class="dropdown__item-text">Ван Гог</span>
+                        </a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--cezann">
+                          <span class="dropdown__item-text">Сезанн</span>
+                        </a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--gauguin_bg">
+                          <span class="dropdown__item-text">Гоген</span>
+                        </a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--seurat">
+                          <span class="dropdown__item-text">Сёра</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="header-bottom__item">
+                <button class="header-bottom__btn btn js-header-dropdown-btn" data-path="four">
+                  <span class="header-bottom__heading heading-effect">
+                    <span class="header-bottom__heading-wrap">
+                      Авангард
+                    </span>
+                  </span>
+                  <span class="header-bottom__icon"></span>
+                </button>
+                <div class="header-list__dropdown js-header-drop" data-target="four">
+                  <div class="header__dropdown-wrap dropdown" data-simplebar>
+                    <ul class="dropdown__list">
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--kandinsky">
+                          <span class="dropdown__item-text">Кандинский</span>
+                        </a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--marinetti">
+                          <span class="dropdown__item-text">Миринетти</span>
+                        </a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--malevich">
+                          <span class="dropdown__item-text">Малевич</span>
+                        </a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--picasso">
+                          <span class="dropdown__item-text">Пикассо</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="header-bottom__item">
+                <button class="header-bottom__btn btn js-header-dropdown-btn" data-path="five">
+                  <span class="header-bottom__heading heading-effect">
+                    <span class="header-bottom__heading-wrap">
+                      Футуризм
+                    </span>
+                  </span>
+                  <span class="header-bottom__icon"></span>
+                </button>
+                <div class="header-list__dropdown js-header-drop" data-target="five">
+                  <div class="header__dropdown-wrap dropdown" data-simplebar>
+                    <ul class="dropdown__list">
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--carra">
+                          <span class="dropdown__item-text">Карра</a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--pratella">
+                          <span class="dropdown__item-text">Прателла</a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--severini">
+                          <span class="dropdown__item-text">Северини</a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a href="" class="dropdown__link dropdown__link--balla">
+                          <span class="dropdown__item-text">Балла</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </nav>
+          <!-- /.header-nav -->
 
-    <div class="header-artists">
-      <div class="container header__container flex">
-        <nav class="header-artists__nav header-nav">
-          <ul class="header-artists__list header-list flex">
-            <li class="header-artists__item">
-              <button class="header-artists__btn btn">
-                <span>Реализм</span>
-                <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M11 1L6 6L1 1" stroke="white"/>
-                </svg>
-              </button>
-              <div class="header-list__dropdown dropdown" >
-                <ul class="dropdown__list" data-simplebar>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link tintoretto__bg">
-                      <span>Тинторетто</span>
-                    </a>
-                  </li>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link tintoretto__bg">
-                      <span>Тинторетто</span>
-                    </a>
-                  </li>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link friedrich__bg">
-                      <span>Фридрих</span>
-                    </a>
-                  </li>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link leonardo__bg">
-                      <span>Леонардо</span>
-                    </a>
-                  </li>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link verrocchio__bg">
-                      <span>Верроккьо</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="header-artists__item">
-              <button class="header-artists__btn btn">
-                <span>Импрессионизм</span>
-                <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M11 1L6 6L1 1" stroke="white"/>
-                </svg>
-              </button>
-              <div class="header-list__dropdown dropdown">
-                <ul class="dropdown__list" data-simplebar>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link mone__bg">
-                      <span>Моне</span>
-                    </a>
-                  </li>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link sisley__bg">
-                      <span>Сислей</span>
-                    </a>
-                  </li>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link mane__bg">
-                      <span>Мане</span>
-                    </a>
-                  </li>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link renoir__bg">
-                      <span>Ренуар</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="header-artists__item">
-              <button class="header-artists__btn btn">
-                <span>Постимпрессионизм</span>
-                <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M11 1L6 6L1 1" stroke="white"/>
-                </svg>
-              </button>
-              <div class="header-list__dropdown dropdown">
-                <ul class="dropdown__list" data-simplebar>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link vangog__bg">
-                      <span>Ван Гог</span>
-                    </a>
-                  </li>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link cezann__bg">
-                      Сезанн
-                    </a>
-                  </li>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link gauguin_bg">
-                      <span>Гоген</span>
-                    </a>
-                  </li>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link seurat__bg">
-                      <span>Сёра</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="header-artists__item">
-              <button class="header-artists__btn btn">
-                <span>Авангард</span>
-                <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M11 1L6 6L1 1" stroke="white"/>
-                </svg>
-              </button>
-              <div class="header-list__dropdown dropdown">
-                <ul class="dropdown__list" data-simplebar>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link kandinsky__bg">
-                      <span>Кандинский</span>
-                    </a>
-                  </li>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link marinetti__bg">
-                      <span>Миринетти</span>
-                    </a>
-                  </li>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link malevich__bg">
-                      <span>Малевич</span>
-                    </a>
-                  </li>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link picasso__bg">
-                      <span>Пикассо</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="header-artists__item">
-              <button class="header-artists__btn btn">
-                <span>Футуризм</span>
-                <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M11 1L6 6L1 1" stroke="white"/>
-                </svg>
-              </button>
-              <div class="header-list__dropdown dropdown">
-                <ul class="dropdown__list" data-simplebar>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link carra__bg">
-                      <span>Карра</span>
-                    </a>
-                  </li>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link pratella__bg">
-                      <span>Прателла</span>
-                    </a>
-                  </li>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link severini__bg">
-                      <span>Северини</span>
-                    </a>
-                  </li>
-                  <li class="dropdown__item">
-                    <a href="" class="dropdown__link balla_bg">
-                      <span>Балла</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-          </ul>
-        </nav>
-        <!-- /.header-nav -->
-
-        <div class="header__search search">
-          <form action="/" class="search__form flex">
-            <button class="search__btn btn" type="submit" aria-label="Найти">
-              <svg width="22" height="21" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="9.15446" height="2.28862" transform="matrix(-0.718931 0.695081 0.718931 0.695081 6.58154 21.0461)" fill="white"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.1246 24.174C10.0376 24.174 5.32763 19.2726 5.32763 13.5104C5.32763 7.74823 10.0376 2.84676 16.1246 2.84676C22.2115 2.84676 26.9215 7.74823 26.9215 13.5104C26.9215 19.2726 22.2115 24.174 16.1246 24.174ZM16.1246 26.8399C8.76285 26.8399 2.79502 20.8721 2.79502 13.5104C2.79502 6.14869 8.76285 0.180847 16.1246 0.180847C23.4863 0.180847 29.4541 6.14869 29.4541 13.5104C29.4541 20.8721 23.4863 26.8399 16.1246 26.8399Z" fill="white"/>
-              </svg>
+          <button class="header-search js-open-search" type="button">Search</button>
+          <form class="header-search__form js-form" action="https://jsonplaceholder.typicode.com/posts" method="POST">
+            <button class="header-search__btn" type="submit">
+              <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="6.8678" height="1.71695" transform="matrix(-0.718931 0.695081 0.718931 0.695081 4.9375 15.6534)" fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0969 18C7.53041 18 3.99692 14.3229 3.99692 10C3.99692 5.67715 7.53041 2 12.0969 2C16.6634 2 20.1969 5.67715 20.1969 10C20.1969 14.3229 16.6634 18 12.0969 18ZM12.0969 20C6.57408 20 2.09692 15.5228 2.09692 10C2.09692 4.47715 6.57408 0 12.0969 0C17.6198 0 22.0969 4.47715 22.0969 10C22.0969 15.5228 17.6198 20 12.0969 20Z" fill="white"/>
+                {</svg>
             </button>
-            <input class="search__input" type="text" name="search" placeholder="Поиск по сайту">
+            <input class="header-search__input" type="text" placeholder="Поиск по сайту" name="search">
+            <button class="header-search__btn--close js-close" type="button"></button>
           </form>
         </div>
       </div>
-    </div>
-    <!-- /.header-artists -->
-  </header>
+    </header>
 
-  <main class="main">
-    <section class="hero" id="hero">
-      <!-- Slider main container -->
-      <div class="swiper">
-        <!-- Additional required wrapper -->
-        <div class="container hero__container">
-          <div class="hero__content">
-            <h1 class="hero__title">Прикоснитесь к&nbsp;прекрасному</h1>
-            <p class="hero__descr">Мы&nbsp;вынуждены отталкиваться от&nbsp;того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.</p>
-            <a class="hero__btn btn" href="#">Подписаться на рассылку</a>
-          </div>
-        </div>
-        <div class="swiper-wrapper">
-          <!-- Slides -->
-          <div class="swiper-slide hero-slide--1">
-            <picture class="hero-slide__img">
-              <source media="(max-width: 576px)" srcset="img/hero/mobile-slide1.jpg">
-              <source media="(max-width: 992px)" srcset="img/hero/small-tablet-slide1.jpg">
-              <source media="(max-width: 1200px)" srcset="img/hero/tablet-slide1.jpg">
-              <img src="img/hero/slide1.jpg" alt="">
-            </picture>
-          </div>
-          <div class="swiper-slide hero-slide--2">
-            <picture class="hero-slide__img">
-              <source media="(max-width: 576px)" srcset="img/hero/mobile-slide2.jpg">
-              <source media="(max-width: 992px)" srcset="img/hero/small-tablet-slide2.jpg">
-              <source media="(max-width: 1200px)" srcset="img/hero/tablet-slide2.jpg">
-              <img src="img/hero/slide2.jpg" alt="">
-            </picture>
-          </div>
-          <div class="swiper-slide hero-slide--3">
-            <picture class="hero-slide__img">
-              <source media="(max-width: 576px)" srcset="img/hero/mobile-slide3.jpg">
-              <source media="(max-width: 992px)" srcset="img/hero/small-tablet-slide3.jpg">
-              <source media="(max-width: 1200px)" srcset="img/hero/tablet-slide3.jpg">
-              <img src="img/hero/slide3.jpg" alt="">
-            </picture>
-          </div>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h2 class="hero-content__title">Прикоснитесь к&nbsp;прекрасному</h2>
+          <p class="hero-content__text">Мы&nbsp;вынуждены отталкиваться от&nbsp;того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.</p>
+          <a href="#" class="hero-content__btn btn">Подписаться на рассылку</a>
         </div>
       </div>
     </section>
-    <!-- /.hero -->
+
+    <div class="hero-slider__wrapper">
+      <div class="js-hero-swiper swiper-container slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide slide slide-1"></div>
+        <div class="swiper-slide slide slide-2"></div>
+        <div class="swiper-slide slide slide-3"></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    </div>
+  </div>
+
+  <main class="main">
+
 
     <section class="about section-offset" id="about">
       <div class="container">
@@ -487,10 +458,13 @@
                   <source media="(max-width: 1360px)" srcset="img/artists/dominiko-gilardo-tablet.jpg">
                   <img class="artist__img" src="img/artists/dominiko-gilardo.jpg" alt="Доменико Гирландайо">
                 </picture>
-                <h3 class="artist__name">Доменико Гирландайо</h3>
-                <p class="artist__description">
-                  <span class="artist__date">2 июня 1448 — 11 января 1494.</span>
-                  Один из&nbsp;ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и&nbsp;сын Ридольфо. Глава художественной мастерской, где юный Микеланджело в&nbsp;течение года овладевал профессиональными навыками. Автор фресковых циклов, в&nbsp;которых выпукло, со&nbsp;всевозможными подробностями показана домашняя жизнь библейских персонажей (в&nbsp;их&nbsp;роли выступают знатные граждане Флоренции в&nbsp;костюмах того времени).</p>
+                <div class="catalog-artist__wrap">
+                  <h3 class="artist__name">Доменико Гирландайо</h3>
+                  <p class="artist__description">
+                    <span class="artist__date">2 июня 1448 — 11 января 1494.</span>
+                    Один из&nbsp;ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и&nbsp;сын Ридольфо. Глава художественной мастерской, где юный Микеланджело в&nbsp;течение года овладевал профессиональными навыками. Автор фресковых циклов, в&nbsp;которых выпукло, со&nbsp;всевозможными подробностями показана домашняя жизнь библейских персонажей (в&nbsp;их&nbsp;роли выступают знатные граждане Флоренции в&nbsp;костюмах того времени).
+                  </p>
+                </div>
               </article>
             </li>
             <li class="catalog-left__item">
@@ -501,9 +475,11 @@
                   <source media="(max-width: 1360px)" srcset="img/artists/artist-stub-tablet.jpg">
                   <img class="artist__img" src="img/artists/artist-stub.jpg" alt="Художник X">
                 </picture>
-                <h3 class="artist__name">Что мы&nbsp;о&nbsp;нём знаем?</h3>
-                <p class="artist__description">Пока ничего... Зато мы&nbsp;точно знаем, что в&nbsp;галерее есть на&nbsp;что посмотреть!</p>
-                <a href="#galery" class="artist__link">В галерею</a>
+                <div class="catalog-artist__wrap">
+                  <h3 class="artist__name">Что мы&nbsp;о&nbsp;нём знаем?</h3>
+                  <p class="artist__description">Пока ничего... Зато мы&nbsp;точно знаем, что в&nbsp;галерее есть на&nbsp;что посмотреть!</p>
+                  <a href="#galery" class="artist__link">В галерею</a>
+                </div>
               </article>
             </li>
           </ul>
@@ -925,8 +901,8 @@
 
         <div class="partner-container">
           <!-- Navigation -->
-          <div class="partner-swiper__prev nav-btn nav-btn--ligth" aria-label="К предыдущему слайду"></div>
-          <div class="partner-swiper__next nav-btn nav-btn--ligth" aria-label="К следующему слайду"></div>
+          <div class="partner-swiper__prev nav-btn nav-btn--ligth project-btn" aria-label="К предыдущему слайду"></div>
+          <div class="partner-swiper__next nav-btn nav-btn--ligth project-btn" aria-label="К следующему слайду"></div>
           <!-- / Navigation -->
 
           <!-- Slider -->
@@ -978,8 +954,10 @@
           <!-- /.address -->
 
           <form action="" class="contact-form" id="contact-callback">
-            <input class="contact-input" type="text" name="name" id="name" placeholder="Имя*" data-validate-field="name">
-            <input class="contact-input" type="tel" name="phone" id="phone" placeholder="Телефон*" data-validate-field="tel">
+            <div class="contact-form__group">
+              <input class="contact-input" type="text" name="name" id="name" placeholder="Имя*" data-validate-field="name">
+              <input class="contact-input" type="tel" name="phone" id="phone" placeholder="Телефон*" data-validate-field="tel">
+            </div>
             <button class="contact-btn btn">
               <span class="contact-btn__text">Заказать обратный звонок</span>
               <span class="contact-btn__text-mobile">Заказать</span>
