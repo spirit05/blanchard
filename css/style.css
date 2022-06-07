@@ -729,6 +729,10 @@ img {
   color: rgba(255, 255, 255, 0.8);
 }
 
+.header-search__input:focus::placeholder {
+  opacity: 0;
+}
+
 .header-search__btn {
   margin-right: 9px;
 }
@@ -798,7 +802,7 @@ img {
   border: 2px solid var(--middle-violet);
   border-radius: 100px;
   opacity: 0;
-  transition: opacity --transition;
+  transition: opacity var(--transition);
 }
 
 .hero-content__btn:focus:not(:hover):not(active)::before {
@@ -1408,7 +1412,7 @@ img {
     background-color: #ECECEC;
     border: none;
     border-radius: 100%;
-    transition: background-color .5s ease, border .5s ease, transform .5 ease;
+    transition: background-color .5s ease, border .5s ease, transform .5s ease;
 }
 
 .accordion__heading-icon::before {
@@ -1751,14 +1755,14 @@ img {
   display: none;
 }
 
-.swiper-pagination-bullet{
+.swiper-pagination-bullets .swiper-pagination-bullet {
   width: 10px;
   height: 10px;
-  background: var(--light-middle-gray);
+  background-color: var(--light-middle-gray);
 }
 
 .swiper-pagination-bullet-active {
-  background: #666666;
+  background-color: #666666;
 }
 
 .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet:not(:last-child) {
@@ -1913,6 +1917,9 @@ img {
 }
 
 .partner-swiper__link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: border var(--transition);
 }
 
@@ -2216,7 +2223,7 @@ img {
   }
 
   .galery-left {
-    width: 280px;
+    width: calc(280 / 1024 * 100%);
   }
 
   .galery-filter__name {
@@ -2238,7 +2245,7 @@ img {
   }
 
   .galery-swiper {
-    width: 64%;
+    width: calc(590 / 924 * 100%);
   }
 
   .galery-slide::before {
@@ -2410,13 +2417,31 @@ img {
 }
 
 @media (max-width: 768px) {
+  .section-description {
+    width: 100%;
+    max-width: none;
+  }
   /* Header */
-
+  .header-top {
+    padding-top: 35px;
+    padding-bottom: 30px;
+  }
 
   /* Hero */
+  .hero-content__text {
+    width: 100%;
+    max-width: none;
+  }
 
+  .hero-content__btn {
+    margin-top: 116px;
+  }
 
   /* Galery */
+  .galery {
+    padding-bottom: 60px;
+  }
+
   .galery-left,
   .galery-swiper {
     width: 100%;
@@ -2425,34 +2450,55 @@ img {
   }
 
   .galery-left {
-    margin-bottom: 50px;
+    margin-bottom: 8px;
+  }
+
+  .galery-filter__name {
+    margin-bottom: 9px;
   }
 
   .galery-filter__wrap {
-    max-width: 300px;
+    margin-bottom: 43px;
+    padding-bottom: 0;
+    width: 280px;
+    max-width: 100%;
+  }
+
+  .galery-swiper {
+    padding-top: 0;
   }
 
   /* Catalog */
+  .catalog {
+    padding-bottom: 28px;
+  }
+
   .catalog-content__wrap {
     flex-direction: column-reverse;
     align-items: center;
   }
 
+  .catalog__description {
+    margin-bottom: 21px;
+  }
+
   .catalog-left,
   .catalog-accordion__list {
-      width: 100%;
+    width: 100%;
   }
 
   .catalog-accordion__list {
-      margin-bottom: 50px;
+    max-width: none;
+    margin-bottom: 50px;
   }
 
   .artist__img {
-      margin-bottom: 30px;
+    max-width: 100%;
+    margin-bottom: 2px;
   }
 
   .accordion__inner-list {
-      column-count: 3;
+    column-count: 3;
   }
 
   .contact-form {
@@ -2462,6 +2508,73 @@ img {
 
   .contact-input {
     width: 48%;
+  }
+
+  /* Events */
+  .events {
+    padding-top: 12px;
+  }
+
+  .events-article__content {
+    padding: 14px 17px 46px 37px;
+    min-height: 481px;
+  }
+
+  .events__title {
+    margin-bottom: 17px;
+  }
+
+  .events-article__title {
+    max-width: 245px;
+  }
+
+  .event-swiper {
+    margin-bottom: 21px;
+  }
+
+  /* Project */
+  .projects {
+    padding-top: 74px;
+    padding-bottom: 80px;
+  }
+
+  .project__description {
+    margin-bottom: 28px;
+  }
+
+  .project-partner__title {
+    margin-bottom: 29px;
+  }
+
+  .partner-swiper__link img {
+    width: auto;
+    height: 106px;
+  }
+
+  /* Contact */
+  .address-title {
+    display: block;
+    margin-bottom: 7px;
+  }
+
+  .contact-content__address {
+    margin-bottom: 28px;
+  }
+
+  .contact-form__group {
+    width: 100%;
+  }
+
+  .contact-input {
+    width: 100%;
+  }
+
+  .contact-btn {
+    padding: 11px 39px;
+  }
+
+  .contact-form {
+    margin-bottom: 29px;
   }
 }
 
