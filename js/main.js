@@ -35,7 +35,6 @@
   function setSliders() {
     const sliderParams = {
       slidesPerView: 1,
-      slidesPerGroup: 1,
       grid: {
         rows: 1,
         fill: "row"
@@ -53,8 +52,7 @@
       breakpoints: {
         441: {
           slidesPerView: 2,
-          slidesPerGroup: 2,
-          spaceBetween: 30
+          spaceBetween: 42
         },
 
         1200: {
@@ -117,6 +115,22 @@
       prevEl: ".events-swiper__prev",
     }
 
+    sliderParams.breakpoints = {
+      441: {
+        slidesPerView: 2,
+        spaceBetween: 34,
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 27
+      },
+      1200: {
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+        spaceBetween: 50
+      },
+    }
+
     const eventsSlider = new Swiper(".event-swiper", sliderParams);
 
     delete sliderParams.pagination;
@@ -124,6 +138,17 @@
     sliderParams.navigation = {
       nextEl: ".partner-swiper__next",
       prevEl: ".partner-swiper__prev",
+    }
+
+    sliderParams.breakpoints = {
+      441: {
+        slidesPerView: 2,
+        spaceBetween: 50,
+      },
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: 50
+      },
     }
 
     const partnerSlider = new Swiper(".partner-swiper", sliderParams);
@@ -150,6 +175,7 @@
 
     openBtn.addEventListener("click", function (evt) {
       this.disabled = true;
+      this.classList.add(params.activeOpenBtnClass);
 
       if (
         !search.classList.contains(params.activeClass) &&
@@ -161,12 +187,15 @@
 
     closeBtn.addEventListener('click', function () {
       openBtn.disabled = false;
+      openBtn.classList.remove(params.activeOpenBtnClass);
+      search.classList.remove(params.activeClass);
       search.classList.add(params.hiddenClass);
     });
 
     document.body.addEventListener('click', function (evt) {
       if (!evt._isSearch && search._isOpened) {
         openBtn.disabled = false;
+        search.classList.remove(params.activeClass);
         search.classList.add(params.hiddenClass);
       }
     });
@@ -226,10 +255,15 @@
     const validation = new JustValidate(".contact-form", {
       focusInvalidField: true,
       errorFieldCssClass: 'is-invalid',
-      lockForm: true,
-      tooltip: {
-        position: 'left',
+      errorLabelStyle: {
+        position: "absolute",
+        top: "-22px",
+        left: "23px",
+        fontSize: '12px',
+        color: '#D11616',
       },
+      successFieldCssClass: 'is-valid',
+      lockForm: true,
     });
 
     im.mask(phone);
@@ -260,7 +294,10 @@
           },
           errorMessage: 'Телефон слишком короткий',
         }
-      ]);
+      ])
+      .onSuccess((ev) => {
+        ev?.preventDefault();
+      });;
   }
 
   // Яндекс карта
@@ -321,6 +358,7 @@
   });
   setSearch({
     openBtnClass: "js-open-search", // класс кнопки открытия
+    activeOpenBtnClass: "search-opened", // класс кнопки при открытой форме
     closeBtnClass: "js-close", // класс кнопки закрытия
     searchClass: "js-form", // класс формы поиска
     activeClass: "is-opened", // класс открытого состояния
