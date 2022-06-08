@@ -116,7 +116,7 @@
     }
 
     sliderParams.breakpoints = {
-      441: {
+      576: {
         slidesPerView: 2,
         spaceBetween: 34,
       },
@@ -141,11 +141,7 @@
     }
 
     sliderParams.breakpoints = {
-      441: {
-        slidesPerView: 2,
-        spaceBetween: 50,
-      },
-      768: {
+      633: {
         slidesPerView: 2,
         spaceBetween: 35,
       },
