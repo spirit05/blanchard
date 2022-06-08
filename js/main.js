@@ -31,6 +31,24 @@
     });
   }
 
+  // Плавный скролл
+  function setScroll() {
+    document.querySelectorAll('.js-scroll-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+          e.preventDefault();
+
+          const href = this.getAttribute('href').substring(1);
+          const scrollTarget = document.getElementById(href);
+          const elementPosition = scrollTarget.getBoundingClientRect().top;
+
+          window.scrollBy({
+              top: elementPosition,
+              behavior: 'smooth'
+          });
+      });
+    });
+  }
+
   // Слайдеры
   function setSliders() {
     const sliderParams = {
@@ -106,17 +124,17 @@
     const gallerySlider = new Swiper(".slides-container", sliderParams);
 
     sliderParams.pagination = {
-      el: ".events .events-swiper__pagination",
+      el: ".events .events-slider__pagination",
       type: 'bullets',
     }
 
     sliderParams.navigation = {
-      nextEl: ".events-swiper__next",
-      prevEl: ".events-swiper__prev",
+      nextEl: ".events-slider__next",
+      prevEl: ".events-slider__prev",
     }
 
     sliderParams.breakpoints = {
-      441: {
+      576: {
         slidesPerView: 2,
         spaceBetween: 34,
       },
@@ -136,14 +154,14 @@
     delete sliderParams.pagination;
 
     sliderParams.navigation = {
-      nextEl: ".partner-swiper__next",
-      prevEl: ".partner-swiper__prev",
+      nextEl: ".partner-slider__next",
+      prevEl: ".partner-slider__prev",
     }
 
     sliderParams.breakpoints = {
-      441: {
+      633: {
         slidesPerView: 2,
-        spaceBetween: 50,
+        spaceBetween: 35,
       },
       1200: {
         slidesPerView: 3,
@@ -349,10 +367,11 @@
     maxWidth: 264,
   });
 
+  setScroll();
   setSliders();
   setBurger({
-    btnClass: "burger", // класс бургера
-    menuClass: "header-menu__wrap", // класс меню
+    btnClass: "header-top__burger", // класс бургера
+    menuClass: "top-nav__wrap", // класс меню
     activeClass: "is-opened", // класс открытого состояния
     hiddenClass: "is-closed" // класс закрывающегося состояния (удаляется сразу после закрытия)
   });
