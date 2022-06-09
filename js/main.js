@@ -1,6 +1,16 @@
 (() => {
   const MOBILE_WIDTH = 768;
 
+  new Accordion(".js-accordion-container", {
+    openOnInit: [0]
+  });
+
+  tippy('.js-tooltip', {
+    theme: 'blanchard',
+    maxWidth: 264,
+  });
+
+  // Получение ширины экрана для плавного мобильного скролла
   function getWindowWidth () {
 	  return Math.max(
 	    document.body.scrollWidth,
@@ -57,7 +67,7 @@
 
   // Плавный скролл
   function setScroll(linkClass) {
-    document.querySelectorAll('.js-scroll-link').forEach(link => {
+    document.querySelectorAll(linkClass).forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
 
@@ -88,7 +98,7 @@
 	  });
 	}
 
-  // Слайдеры
+  // Слайдеры (настройка параметров внутри функции)
   function setSliders() {
     const heroSliderParams = {
       allowTouchMove: false,
@@ -163,6 +173,7 @@
     }
     const eventsSliderParams = {
       ...startSliderParams,
+      setWrapperSize: true,
       pagination: {
         el: ".events .events-slider__pagination",
         type: 'bullets',
@@ -174,6 +185,7 @@
       breakpoints: {
         576: {
           slidesPerView: 2,
+          slidesPerGroup: 1,
           spaceBetween: 34,
         },
         992: {
@@ -211,11 +223,13 @@
     }
 
     const heroSlider = new Swiper('.js-hero-swiper', heroSliderParams);
-    const gallerySlider = new Swiper(".slides-container", galerySliderParams);
+    const gallerySlider = new Swiper(".galery-swiper__container", galerySliderParams);
     const eventsSlider = new Swiper(".event-swiper", eventsSliderParams);
+    console.log('eventsSlider: ', eventsSlider.autoHeight);
     const partnerSlider = new Swiper(".partner-swiper", partnerSliderParams);
   }
 
+  // Поиск
   function setSearch(params) {
     const openBtn = document.querySelector(`.${params.openBtnClass}`);
     const search = document.querySelector(`.${params.searchClass}`);
@@ -263,7 +277,7 @@
     });
   }
 
-  // выпадающий список
+  // Выпадающий список
   const params = {
     btnClassName: "js-header-dropdown-btn",
     dropClassName: "js-header-drop",
@@ -309,6 +323,16 @@
     });
   }
 
+  // Аккордион
+  function setCustomSelect(selectLink) {
+    const selectGalery = document.querySelector(`.${selectLink}`);
+    const galeryFilter = new Choices(selectGalery, {
+      searchEnabled: false,
+      position: 'center',
+      shouldSort: false,
+    });
+  }
+
   // Переключение художников
   function setPainter(params) {
     const painterBtnList = document.querySelector(`.${params.btnListClass}`);
@@ -331,16 +355,6 @@
       });
 
       scrollToPainter("painter-article", true);
-    });
-  }
-
-  function setPainterListener(linkClass) {
-    document.querySelectorAll(`.${linkClass}`).forEach(link => {
-      link.addEventListener('click', function(e) {
-          e.preventDefault();
-
-          scrollToPainter(this, true);
-      });
     });
   }
 
@@ -437,15 +451,6 @@
     }
   }
 
-  new Accordion(".js-accordion-container", {
-    openOnInit: [0]
-  });
-
-  tippy('.js-tooltip', {
-    theme: 'blanchard',
-    maxWidth: 264,
-  });
-
   setScroll("js-scroll-link");
   setSliders();
   setBurger({
@@ -463,20 +468,14 @@
     activeClass: "is-opened", // класс открытого состояния
     hiddenClass: "is-closed" // класс закрывающегося состояния (удаляется сразу после закрытия)
   });
+  setCustomSelect("galery__filter");
   setPainter({
-    btnListClass: "js-accordion-container",
-    painterArticleClass: "catalog-left__artist",
-    painterLinkClass: "js-tab-btn",
-    activePainter: "catalog-left__artist--active"
+    btnListClass: "js-accordion-container", // класс списка ссылок имен
+    painterArticleClass: "catalog-left__artist", // класс статьи с описанием
+    painterLinkClass: "js-tab-btn", // класс ссылки с именем
+    activePainter: "catalog-left__artist--active" // класс статьи которую нужно показать
   });
   setMenuListener();
   setValidation();
   setMap();
-
-  const selectGalery = document.querySelector(".galery__filter");
-  const galeryFilter = new Choices(selectGalery, {
-    searchEnabled: false,
-    position: 'center',
-    shouldSort: false,
-  });
 })();

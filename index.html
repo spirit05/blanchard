@@ -235,7 +235,7 @@
             </ul>
           </nav>
 
-          <form class="header-art__form search js-form" action="https://jsonplaceholder.typicode.com/posts" method="POST" aria-label="Форма поиска">
+          <form class="header-art__form search js-form" aria-label="Форма поиска">
             <div class="search__wrap">
               <button class="search__btn" type="submit" aria-label="Начать поиск" tabindex="0">
                 <svg class="search__btn-icon" width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -300,8 +300,6 @@
                 <option value="">Живопись</option>
                 <option value="Рисунок">Рисунок</option>
                 <option value="Скульптура">Скульптура</option>
-                <option value="Рисунок">Рисунок</option>
-                <option value="Скульптура">Скульптура</option>
               </select>
             </div>
             <!-- /.galery-rigth__filter -->
@@ -338,8 +336,18 @@
             </div>
             <!-- /.Navigation -->
 
-            <div class="swiper-container slides-container">
+            <div class="galery-swiper__container slides-container">
               <div class="swiper-wrapper">
+                <a class="swiper-slide galery-slide">
+                  <picture>
+                    <source srcset="img/galery/slide-1-mobile.jpg" media="(max-width: 580px)">
+                    <source srcset="img/galery/slide-1-small-tablet.jpg" media="(max-width: 960px)">
+                    <source srcset="img/galery/slide-1-tablet.jpg" media="(max-width: 1360px)">
+
+                    <!-- Здесь картинка от 1361 до 1920 и выше -->
+                    <img class="galery-image" src="img/galery/slide-1.jpg" alt="Малевич Торс (Фигура с розовым лицом)">
+                  </picture>
+                </a>
                 <a class="swiper-slide galery-slide">
                   <picture>
                     <source srcset="img/galery/slide-1-mobile.jpg" media="(max-width: 580px)">
