@@ -15,7 +15,6 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/simplebar.css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css">
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/choices.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -341,7 +340,7 @@
 
             <div class="swiper-container slides-container">
               <div class="swiper-wrapper">
-                <a class="swiper-slide galery-slide" href="#">
+                <a class="swiper-slide galery-slide">
                   <picture>
                     <source srcset="img/galery/slide-1-mobile.jpg" media="(max-width: 580px)">
                     <source srcset="img/galery/slide-1-small-tablet.jpg" media="(max-width: 960px)">
@@ -351,7 +350,7 @@
                     <img class="galery-image" src="img/galery/slide-1.jpg" alt="Малевич Торс (Фигура с розовым лицом)">
                   </picture>
                 </a>
-                <a class="swiper-slide galery-slide" href="#">
+                <a class="swiper-slide galery-slide">
                   <picture>
                     <source srcset="img/galery/slide-2-mobile.jpg" media="(max-width: 580px)">
                     <source srcset="img/galery/slide-2-small-tablet.jpg" media="(max-width: 960px)">
@@ -361,7 +360,7 @@
                     <img class="galery-image" src="img/galery/slide-2.jpg" alt="малевич Женщина с граблями">
                   </picture>
                 </a>
-                <a class="swiper-slide galery-slide" href="#">
+                <a class="swiper-slide galery-slide">
                   <picture>
                     <source srcset="img/galery/slide-3-mobile.jpg" media="(max-width: 580px)">
                     <source srcset="img/galery/slide-3-small-tablet.jpg" media="(max-width: 960px)">
@@ -371,7 +370,7 @@
                     <img class="galery-image" src="img/galery/slide-3.jpg" alt="малевич Уборка ржи">
                   </picture>
                 </a>
-                <a class="swiper-slide galery-slide" href="#">
+                <a class="swiper-slide galery-slide">
                   <picture>
                     <source srcset="img/galery/slide-4-mobile.jpg" media="(max-width: 580px)">
                     <source srcset="img/galery/slide-4-small-tablet.jpg" media="(max-width: 960px)">
@@ -381,7 +380,7 @@
                     <img class="galery-image" src="img/galery/slide-4.jpg" alt="Малевич Супрематическая композиция">
                   </picture>
                 </a>
-                <a class="swiper-slide galery-slide" href="#">
+                <a class="swiper-slide galery-slide">
                   <picture>
                     <source srcset="img/galery/slide-5-mobile.jpg" media="(max-width: 580px)">
                     <source srcset="img/galery/slide-5-small-tablet.jpg" media="(max-width: 960px)">
@@ -404,9 +403,9 @@
         <h2 class="catalog__title section__title">Каталог</h2>
         <p class="catalog__description section-description">Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и&nbsp;морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и&nbsp;по&nbsp;сей день остаются уделом либералов, которые жаждут быть функционально разнесены на&nbsp;независимые элементы.</p>
         <div class="catalog__wrapper">
-          <ul class="catalog-left">
+          <ul class="catalog-left" id="painter-article">
             <li class="catalog-left__item">
-              <article class="catalog-left__artist artist catalog-left__artist--active">
+              <article class="catalog-left__artist artist catalog-left__artist--active" data-target="domenico">
                 <picture>
                   <source media="(max-width: 580px)" srcset="img/artists/dominiko-gilardo-mobile.jpg">
                   <source media="(max-width: 960px)" srcset="img/artists/dominiko-gilardo-small-tablet.jpg">
@@ -423,7 +422,7 @@
               </article>
             </li>
             <li class="catalog-left__item">
-              <article class="catalog-left__artist artist">
+              <article class="catalog-left__artist artist" data-target="empty">
                 <picture>
                   <source media="(max-width: 580px)" srcset="img/artists/artist-stub-mobile.jpg">
                   <source media="(max-width: 960px)" srcset="img/artists/artist-stub-small-tablet.jpg">
@@ -453,122 +452,122 @@
                   <div class="accordion__content-wrap">
                     <ul class="accordion__inner-list reset-list">
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty">
                           <span class="link__text">Бенедетто ди Биндо</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty">
                           <span class="link__text">Веккьетта</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty">
                           <span class="link__text">Парентино, Бернардо</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="domenico" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="domenico">
                           <span class="link__text">Доменико Гирландайо</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty">
                           <span class="link__text">Бенедетто ди Биндо</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty">
                           <span class="link__text">Веккьетта</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty">
                           <span class="link__text">Парентино, Бернардо</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="domenico" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="domenico">
                           <span class="link__text">Доменико Гирландайо</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty">
                           <span class="link__text">Бенедетто ди Биндо</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty">
                           <span class="link__text">Веккьетта</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty">
                           <span class="link__text">Парентино, Бернардо</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="domenico" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="domenico">
                           <span class="link__text">Доменико Гирландайо</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty">
                           <span class="link__text">Бенедетто ди Биндо</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty">
                           <span class="link__text">Веккьетта</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty">
                           <span class="link__text">Парентино, Бернардо</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="domenico" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="domenico">
                           <span class="link__text">Доменико Гирландайо</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty">
                           <span class="link__text">Бенедетто ди Биндо</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty">
                           <span class="link__text">Веккьетта</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty">
                           <span class="link__text">Парентино, Бернардо</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="domenico" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="domenico">
                           <span class="link__text">Доменико Гирландайо</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty">
                           <span class="link__text">Бенедетто ди Биндо</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty">
                           <span class="link__text">Веккьетта</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="empty">
                           <span class="link__text">Парентино, Бернардо</span>
                         </a>
                       </li>
                       <li class="accordion__item">
-                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="domenico" href="#">
+                        <a class="accordion__painter-link link link--text link--text-another js-tab-btn" data-painter-btn="domenico">
                           <span class="link__text">Доменико Гирландайо</span>
                         </a>
                       </li>
@@ -754,7 +753,7 @@
                   <span class="events-article__info">20&nbsp;марта по&nbsp;30&nbsp;апреля</span>
                   <h3 class="events-article__title">Книжная гравюра в&nbsp;живом восприятии</h3>
                   <p class="events-article__description">Один из&nbsp;ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и&nbsp;сын Ридольфо.</p>
-                  <a class="events-article__link" href="#">
+                  <a class="events-article__link">
                     <span class="events-article__link-wrap heading-effect effect">
                       <span class="events-article__link-text text-wrap">Подробнее</span>
                     </span>
