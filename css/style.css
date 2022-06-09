@@ -2214,6 +2214,10 @@ img {
     width: 314px;
   }
 
+  .search__btn {
+    height: 35px;
+  }
+
   .search__btn-icon {
     width: 30px;
     height: 29px;
@@ -2225,6 +2229,10 @@ img {
     visibility: visible;
     order: 1;
     transition: opacity 0.3s ease-out .3s, visibility 0.6s ease-out;
+  }
+
+  .search__input {
+    color: var(--white);
   }
 
   .search__input::placeholder {
