@@ -140,6 +140,7 @@
       },
       992: {
         slidesPerView: 3,
+        slidesPerGroup: 1,
         spaceBetween: 27
       },
       1200: {
@@ -162,6 +163,10 @@
       633: {
         slidesPerView: 2,
         spaceBetween: 35,
+      },
+      992: {
+        slidesPerView: 2,
+        spaceBetween: 50,
       },
       1200: {
         slidesPerView: 3,
@@ -315,7 +320,7 @@
       ])
       .onSuccess((ev) => {
         ev?.preventDefault();
-      });;
+      });
   }
 
   // Яндекс карта
