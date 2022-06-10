@@ -225,7 +225,6 @@
     const heroSlider = new Swiper('.js-hero-swiper', heroSliderParams);
     const gallerySlider = new Swiper(".galery-swiper__container", galerySliderParams);
     const eventsSlider = new Swiper(".event-swiper", eventsSliderParams);
-    console.log('eventsSlider: ', eventsSlider.autoHeight);
     const partnerSlider = new Swiper(".partner-swiper", partnerSliderParams);
   }
 
