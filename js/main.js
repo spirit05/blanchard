@@ -8,6 +8,7 @@
   tippy('.js-tooltip', {
     theme: 'blanchard',
     maxWidth: 264,
+    duration: [400, 400],
   });
 
   // Получение ширины экрана для плавного мобильного скролла
@@ -173,7 +174,6 @@
     }
     const eventsSliderParams = {
       ...startSliderParams,
-      setWrapperSize: true,
       pagination: {
         el: ".events .events-slider__pagination",
         type: 'bullets',
@@ -182,6 +182,7 @@
         nextEl: ".events-slider__next",
         prevEl: ".events-slider__prev",
       },
+      autoHeight: false,
       breakpoints: {
         576: {
           slidesPerView: 2,
@@ -199,6 +200,20 @@
           spaceBetween: 50
         },
       },
+      on: {
+        init: function () {
+          this.slides.forEach((slide) => slide.tabIndex = "-1");
+        },
+        slideChange: function () {
+          this.slides.forEach((slide) => {
+            if (!slide.classList.contains("slide-visible")) {
+              slide.children[0].children[1].lastElementChild.tabIndex = "-1";
+            } else {
+              slide.children[0].children[1].lastElementChild.tabIndex = "";
+            }
+          });
+        }
+      }
     }
     const partnerSliderParams = {
       ...startSliderParams,
@@ -338,12 +353,20 @@
     const painterArticles = document.querySelectorAll(`.${params.painterArticleClass}`);
 
     painterBtnList.addEventListener('click', function (evt) {
+      evt.preventDefault();
       const target = evt.target;
       const currentLink = target.closest(`.${params.painterLinkClass}`);
       const currentPainter = currentLink?.dataset.painterBtn || '';
 
       if (!currentPainter) return;
 
+      if(!currentLink.classList.contains(params.tabActiveClass)) {
+        const currentTab = target.closest(`.${params.innerListClass}`);
+        const links = currentTab.querySelectorAll(`.${params.painterLinkClass}`);
+        links.forEach(link => link.classList.remove(params.tabActiveClass));
+
+        currentLink.classList.add(params.tabActiveClass);
+      }
       painterArticles.forEach((el) => {
         if (el.classList.contains(params.activePainter)) {
           el.classList.remove(params.activePainter);
@@ -451,6 +474,7 @@
   }
 
   setScroll("js-scroll-link");
+  setMenuListener();
   setSliders();
   setBurger({
     btnClass: "header-top__burger", // класс бургера
@@ -472,9 +496,10 @@
     btnListClass: "js-accordion-container", // класс списка ссылок имен
     painterArticleClass: "catalog-left__artist", // класс статьи с описанием
     painterLinkClass: "js-tab-btn", // класс ссылки с именем
-    activePainter: "catalog-left__artist--active" // класс статьи которую нужно показать
+    activePainter: "catalog-left__artist--active", // класс статьи которую нужно показать
+    innerListClass: "accordion__inner-list", // класс списка ссылок активной вкладки
+    tabActiveClass: "tab-active" // класс активной ссылки
   });
-  setMenuListener();
   setValidation();
   setMap();
 })();
