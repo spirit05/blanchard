@@ -162,9 +162,9 @@
       breakpoints: {
         441: {
           slidesPerView: 2,
-          spaceBetween: 42
+          slidesPerGroup: 2,
+          spaceBetween: 37
         },
-
         1200: {
           slidesPerView: 3,
           slidesPerGroup: 3,
@@ -177,6 +177,7 @@
       pagination: {
         el: ".events .events-slider__pagination",
         type: 'bullets',
+        clickable: true,
       },
       navigation: {
         nextEl: ".events-slider__next",
@@ -441,23 +442,37 @@
       const myMap = new ymaps.Map("map", {
           center: [55.758468,37.601088],
           zoom: 14,
-          controls: ['geolocationControl', 'zoomControl']
-          },
-          {
-            suppressMapOpenBlock: true,
-            geolocationControlSize: "large",
-            geolocationControlPosition:  { top: "340px", right: "20px" },
-            geolocationControlFloat: 'none',
-            zoomControlSize: "small",
-            zoomControlFloat: "none",
-            zoomControlPosition: { top: "265px", right: "20px" }
-          },
+          controls: []
+        },
+        {
+          suppressMapOpenBlock: true,
+        },
       );
+
+      const geolocationControl = new ymaps.control.GeolocationControl({
+        options: {
+          size: "large",
+          position: { top: 359, right: 18 },
+        }
+      });
+
+      const zoomControl = new ymaps.control.ZoomControl({
+        options: {
+            size: "small",
+            position: { top: 264, right: 18 }
+        }
+      });
+
+      if (getWindowWidth() > 1024) {
+        myMap.controls.add(geolocationControl);
+        myMap.controls.add(zoomControl);
+      }
 
       const myGeoObject = new ymaps.GeoObject();
 
       myMap.geoObjects.add(myGeoObject);
-      var myPlacemark = new ymaps.Placemark([55.758468,37.601088], {}, {
+
+      const myPlacemark = new ymaps.Placemark([55.758468,37.601088], {}, {
           iconLayout: 'default#image',
           iconImageHref: 'img/icons/map-icon.svg',
           iconImageSize: [20, 20],
