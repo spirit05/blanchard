@@ -173,6 +173,7 @@ img {
 /* Header */
 .top-wrapper {
   position: relative;
+  overflow: hidden;
 }
 
 .header {
@@ -416,7 +417,6 @@ img {
 }
 
 .art-nav__item {
-  position: relative;
   margin-right: calc(115 / 1601 * 100%);
   padding-top: 23px;
 }
@@ -503,7 +503,6 @@ img {
   display: none;
   padding: 40px 20px 40px 40px;
   background-color: rgba(0, 0, 0, 0.6);
-  transform: translateY(100%);
 }
 
 .art-dropdown__wrap {
@@ -3363,6 +3362,7 @@ img {
   .contacts__wrap {
     padding-top: 0;
     padding-bottom: 10px;
+    border: none;
   }
 
   .contacts-container {
