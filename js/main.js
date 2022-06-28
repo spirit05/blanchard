@@ -325,7 +325,9 @@
         const btn = e.target.closest(`.${params.btnClassName}`);
         const path = btn.dataset.path;
         const drop = document.querySelector(`.${params.dropClassName}[data-target="${path}"]`);
+        const menuHeight = btn.parentElement.offsetParent.clientHeight;
 
+        drop.style.transform = `translate(${btn.parentElement.offsetLeft}px, 100%)`;
         btn.classList.toggle(params.activeClassName);
 
         if (!drop.classList.contains(params.activeClassName)) {
